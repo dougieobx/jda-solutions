@@ -1,26 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* JDA TSG Brand Colors */
+  --color-jda-navy: #1B3A5C;
+  --color-jda-teal: #00A8CC;
+  --color-jda-teal-hover: #008fb3;
+  --color-jda-teal-active: #007a9a;
+  --color-jda-charcoal: #2D3E50;
+  --color-jda-gray: #6B7C93;
+  --color-jda-light: #E8ECEF;
+  --color-jda-white: #FFFFFF;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Fonts */
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-open-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #FFFFFF;
+  color: #2D3E50;
+  font-family: var(--font-open-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.2;
+}
+
+/* Accent bar utility */
+.accent-bar {
+  width: 60px;
+  height: 4px;
+  background-color: #00A8CC;
 }
