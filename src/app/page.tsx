@@ -17,29 +17,90 @@ const templates = [
 
 export default function Home() {
   const [activeTemplate, setActiveTemplate] = useState(templates[0]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const ActiveComponent = activeTemplate.component;
+
+  const handleTemplateSelect = (template: typeof templates[0]) => {
+    setActiveTemplate(template);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <main className="min-h-screen bg-[#F8F9FA] flex flex-col">
       {/* Header */}
-      <header className="bg-gradient-to-r from-[#1B3A5C] to-[#2D3E50] py-6 px-6 shadow-lg">
+      <header className="bg-gradient-to-r from-[#1B3A5C] to-[#2D3E50] py-4 md:py-6 px-4 md:px-6 shadow-lg">
         <div className="max-w-[1400px] mx-auto">
-          <h1 className="font-[family-name:var(--font-heading)] tracking-tight text-white flex items-baseline gap-2">
-            <span className="text-3xl font-bold">JDA TSG</span>
-            <span className="text-[#00A8CC] text-2xl">|</span>
-            <span className="text-xl font-normal italic">Expect more, move faster.</span>
+          <h1 className="font-[family-name:var(--font-heading)] tracking-tight text-white flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+            <span className="text-2xl md:text-3xl font-bold">JDA TSG</span>
+            <span className="hidden sm:inline text-[#00A8CC] text-2xl">|</span>
+            <span className="text-base md:text-xl font-normal italic opacity-90">Expect more, move faster.</span>
           </h1>
-          <p className="text-white/80 text-base mt-1 font-[family-name:var(--font-body)]">
+          <p className="text-white/80 text-sm md:text-base mt-1 font-[family-name:var(--font-body)]">
             Solutions Engineering Template Library
           </p>
         </div>
       </header>
 
+      {/* Mobile Template Selector */}
+      <div className="lg:hidden sticky top-0 z-20 bg-white shadow-md border-b border-[#E8ECEF]">
+        <div className="px-4 py-3">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="w-full flex items-center justify-between p-3 bg-[#F8F9FA] rounded-lg border border-[#E8ECEF]"
+          >
+            <div className="flex items-center gap-3">
+              <span className="font-bold text-sm w-6 h-6 rounded flex items-center justify-center bg-[#00A8CC] text-white">
+                {activeTemplate.number}
+              </span>
+              <span className="font-medium text-[#1B3A5C] font-[family-name:var(--font-heading)]">
+                {activeTemplate.title}
+              </span>
+            </div>
+            <svg 
+              className={`w-5 h-5 text-[#6B7C93] transition-transform ${mobileMenuOpen ? 'rotate-180' : ''}`} 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {/* Mobile Dropdown Menu */}
+          {mobileMenuOpen && (
+            <div className="absolute left-4 right-4 mt-2 bg-white rounded-lg shadow-lg border border-[#E8ECEF] overflow-hidden z-30">
+              {templates.map((template) => (
+                <button
+                  key={template.id}
+                  onClick={() => handleTemplateSelect(template)}
+                  className={`flex items-center gap-3 p-4 w-full text-left border-b border-[#E8ECEF] last:border-b-0 transition-colors
+                    ${activeTemplate.id === template.id
+                      ? 'bg-[#00A8CC] text-white'
+                      : 'text-[#2D3E50] hover:bg-[#F8F9FA]'
+                    }`}
+                >
+                  <span className={`font-bold text-sm w-6 h-6 rounded flex items-center justify-center ${
+                    activeTemplate.id === template.id 
+                      ? 'bg-white/20 text-white' 
+                      : 'bg-[#00A8CC]/10 text-[#00A8CC]'
+                  }`}>
+                    {template.number}
+                  </span>
+                  <span className="font-medium font-[family-name:var(--font-heading)]">
+                    {template.title}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Main Content */}
-      <div className="flex flex-1 max-w-[1400px] mx-auto w-full py-8 px-6 gap-8">
-        {/* Sidebar */}
-        <nav className="w-72 flex-shrink-0">
+      <div className="flex flex-1 max-w-[1400px] mx-auto w-full py-4 md:py-8 px-4 md:px-6 gap-8">
+        {/* Sidebar - Hidden on mobile */}
+        <nav className="hidden lg:block w-72 flex-shrink-0">
           <div className="sticky top-8">
             <div className="bg-white rounded-lg shadow-md p-6 border border-[#E8ECEF]">
               <h2 className="text-lg font-semibold text-[#1B3A5C] mb-2 font-[family-name:var(--font-heading)]">
@@ -87,8 +148,8 @@ export default function Home() {
         </nav>
 
         {/* Template Content */}
-        <div className="flex-1">
-          <div className="bg-white rounded-lg shadow-md p-8 border border-[#E8ECEF]">
+        <div className="flex-1 min-w-0">
+          <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 md:p-8 border border-[#E8ECEF]">
             <ActiveComponent />
           </div>
         </div>

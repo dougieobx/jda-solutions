@@ -88,22 +88,22 @@ export default function SolutionTemplate() {
   const d = showExample ? exampleData : null;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       {/* Document Header */}
-      <div className="border-b-2 border-[#00A8CC] pb-6">
-        <div className="flex items-start justify-between mb-4">
+      <div className="border-b-2 border-[#00A8CC] pb-4 md:pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
           <div>
             <p className="text-xs font-semibold text-[#00A8CC] uppercase tracking-wider mb-2">Template 02</p>
-            <h2 className="font-[family-name:var(--font-heading)] font-bold text-4xl text-[#1B3A5C]">
+            <h2 className="font-[family-name:var(--font-heading)] font-bold text-2xl sm:text-3xl md:text-4xl text-[#1B3A5C]">
               Solution Blueprint
             </h2>
           </div>
-          <div className="text-right text-sm text-[#6B7C93]">
+          <div className="text-left sm:text-right text-sm text-[#6B7C93]">
             <p><span className="font-semibold">Version:</span> 3.0</p>
             <p><span className="font-semibold">Last Updated:</span> Jan 2025</p>
           </div>
         </div>
-        <p className="text-[#6B7C93] italic">
+        <p className="text-sm md:text-base text-[#6B7C93] italic">
           Defines the actual service &quot;system&quot; so the deal is operable, not just sellable. Used as the internal alignment artifact and the backbone for staffing, delivery planning, and the proposal narrative.
         </p>
       </div>
@@ -111,7 +111,7 @@ export default function SolutionTemplate() {
       <TemplateToggle showExample={showExample} onToggle={() => setShowExample(!showExample)} />
 
       {/* Meta Fields */}
-      <div className="grid grid-cols-3 gap-4 p-5 bg-[#F8F9FA] rounded-lg border border-[#E8ECEF]">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 md:p-5 bg-[#F8F9FA] rounded-lg border border-[#E8ECEF]">
         <div>
           <label className="block text-xs font-semibold text-[#6B7C93] uppercase tracking-wider mb-1">Client</label>
           <div className={`h-10 bg-white border border-[#E8ECEF] rounded px-3 flex items-center text-sm ${d ? 'text-[#1B3A5C] font-medium' : 'text-[#6B7C93]'}`}>
@@ -135,21 +135,22 @@ export default function SolutionTemplate() {
       {/* Section 1: Scope */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">1</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Scope (In / Out)</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">1</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Scope (In / Out)</h3>
         </div>
-        <div className="pl-11">
-          <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
-            <table className="w-full text-sm">
-              <thead className="bg-[#1B3A5C] text-white">
-                <tr>
-                  <th className="px-4 py-3 text-left font-semibold w-1/2">In Scope</th>
-                  <th className="px-4 py-3 text-left font-semibold w-1/2">Out of Scope</th>
-                </tr>
-              </thead>
+        <div className="pl-10 md:pl-11">
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="overflow-hidden rounded-lg border border-[#E8ECEF] min-w-[500px]">
+              <table className="w-full text-sm">
+                <thead className="bg-[#1B3A5C] text-white">
+                  <tr>
+                    <th className="px-3 md:px-4 py-2 md:py-3 text-left font-semibold w-1/2">In Scope</th>
+                    <th className="px-3 md:px-4 py-2 md:py-3 text-left font-semibold w-1/2">Out of Scope</th>
+                  </tr>
+                </thead>
               <tbody>
                 <tr className="bg-white">
-                  <td className={`px-4 py-3 align-top ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
+                  <td className={`px-3 md:px-4 py-2 md:py-3 align-top ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
                     <ul className="space-y-2">
                       {(d ? d.scope.inScope : [
                         '[e.g., Tier 1 & Tier 2 email/chat support]',
@@ -162,7 +163,7 @@ export default function SolutionTemplate() {
                       ))}
                     </ul>
                   </td>
-                  <td className={`px-4 py-3 align-top ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
+                  <td className={`px-3 md:px-4 py-2 md:py-3 align-top ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
                     <ul className="space-y-2">
                       {(d ? d.scope.outScope : [
                         '[e.g., Phone support]',
@@ -178,6 +179,7 @@ export default function SolutionTemplate() {
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </section>
@@ -185,11 +187,11 @@ export default function SolutionTemplate() {
       {/* Section 2: Unit of Work */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">2</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Unit of Work + Complexity Tiers</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">2</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Unit of Work + Complexity Tiers</h3>
         </div>
-        <div className="pl-11 space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="pl-10 md:pl-11 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-[#1B3A5C] mb-2">Unit of Work</label>
               <div className={`h-10 bg-white border border-[#E8ECEF] rounded px-3 flex items-center text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
@@ -203,33 +205,35 @@ export default function SolutionTemplate() {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
-            <table className="w-full text-sm">
-              <thead className="bg-[#F8F9FA]">
-                <tr>
-                  <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">Tier</th>
-                  <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">Description</th>
-                  <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">% Mix</th>
-                  <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">Target AHT</th>
-                  <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">Handling Notes</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E8ECEF] bg-white">
-                {(d ? d.tiers : [
-                  { tier: 'Tier 1', desc: '[Description]', mix: '[X%]', aht: '[X min]', notes: '[e.g., Scripted, macro-enabled]' },
-                  { tier: 'Tier 2', desc: '[Description]', mix: '[X%]', aht: '[X min]', notes: '[e.g., Research required]' },
-                  { tier: 'Tier 3', desc: '[Description]', mix: '[X%]', aht: '[X min]', notes: '[e.g., Escalation to client]' },
-                ]).map((row, i) => (
-                  <tr key={i}>
-                    <td className="px-4 py-2 font-semibold text-[#1B3A5C]">{row.tier}</td>
-                    <td className={`px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.desc}</td>
-                    <td className={`px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.mix}</td>
-                    <td className={`px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.aht}</td>
-                    <td className={`px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.notes}</td>
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="overflow-hidden rounded-lg border border-[#E8ECEF] min-w-[700px]">
+              <table className="w-full text-sm">
+                <thead className="bg-[#F8F9FA]">
+                  <tr>
+                    <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">Tier</th>
+                    <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">Description</th>
+                    <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">% Mix</th>
+                    <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">Target AHT</th>
+                    <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">Handling Notes</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-[#E8ECEF] bg-white">
+                  {(d ? d.tiers : [
+                    { tier: 'Tier 1', desc: '[Description]', mix: '[X%]', aht: '[X min]', notes: '[e.g., Scripted, macro-enabled]' },
+                    { tier: 'Tier 2', desc: '[Description]', mix: '[X%]', aht: '[X min]', notes: '[e.g., Research required]' },
+                    { tier: 'Tier 3', desc: '[Description]', mix: '[X%]', aht: '[X min]', notes: '[e.g., Escalation to client]' },
+                  ]).map((row, i) => (
+                    <tr key={i}>
+                      <td className="px-3 md:px-4 py-2 font-semibold text-[#1B3A5C]">{row.tier}</td>
+                      <td className={`px-3 md:px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.desc}</td>
+                      <td className={`px-3 md:px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.mix}</td>
+                      <td className={`px-3 md:px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.aht}</td>
+                      <td className={`px-3 md:px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.notes}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -482,7 +486,7 @@ export default function SolutionTemplate() {
       </section>
 
       {/* Footer */}
-      <div className="mt-12 pt-6 border-t border-[#E8ECEF] flex items-center justify-between text-sm text-[#6B7C93]">
+      <div className="mt-8 md:mt-12 pt-4 md:pt-6 border-t border-[#E8ECEF] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs md:text-sm text-[#6B7C93]">
         <p>JDA TSG  |  Solutions Engineering</p>
         <p>Confidential - Internal Use Only</p>
       </div>

@@ -58,22 +58,22 @@ export default function DiscoveryTemplate() {
   const d = showExample ? exampleData : null;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       {/* Document Header */}
-      <div className="border-b-2 border-[#00A8CC] pb-6">
-        <div className="flex items-start justify-between mb-4">
+      <div className="border-b-2 border-[#00A8CC] pb-4 md:pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
           <div>
             <p className="text-xs font-semibold text-[#00A8CC] uppercase tracking-wider mb-2">Template 01</p>
-            <h2 className="font-[family-name:var(--font-heading)] font-bold text-4xl text-[#1B3A5C]">
+            <h2 className="font-[family-name:var(--font-heading)] font-bold text-2xl sm:text-3xl md:text-4xl text-[#1B3A5C]">
               Discovery Summary
             </h2>
           </div>
-          <div className="text-right text-sm text-[#6B7C93]">
+          <div className="text-left sm:text-right text-sm text-[#6B7C93]">
             <p><span className="font-semibold">Version:</span> 2.1</p>
             <p><span className="font-semibold">Last Updated:</span> Jan 2025</p>
           </div>
         </div>
-        <p className="text-[#6B7C93] italic">
+        <p className="text-sm md:text-base text-[#6B7C93] italic">
           Captures the core problem, outcomes, volumes/volatility, constraints, and decision process from discovery. Used to confirm feasibility and identify what&apos;s missing before building the Solution Blueprint and pricing.
         </p>
       </div>
@@ -82,7 +82,7 @@ export default function DiscoveryTemplate() {
       <TemplateToggle showExample={showExample} onToggle={() => setShowExample(!showExample)} />
 
       {/* Meta Fields */}
-      <div className="grid grid-cols-2 gap-4 p-5 bg-[#F8F9FA] rounded-lg border border-[#E8ECEF]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 md:p-5 bg-[#F8F9FA] rounded-lg border border-[#E8ECEF]">
         <div>
           <label className="block text-xs font-semibold text-[#6B7C93] uppercase tracking-wider mb-1">Client Name</label>
           <div className={`h-10 bg-white border border-[#E8ECEF] rounded px-3 flex items-center text-sm ${d ? 'text-[#1B3A5C] font-medium' : 'text-[#6B7C93]'}`}>
@@ -100,12 +100,12 @@ export default function DiscoveryTemplate() {
       {/* Section 1: Problem */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">1</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Problem</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">1</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Problem</h3>
         </div>
-        <div className="pl-11 space-y-4">
+        <div className="pl-10 md:pl-11 space-y-4">
           {!showExample && (
-            <div className="p-4 bg-[#F8F9FA] border-l-4 border-[#00A8CC] rounded-r-lg">
+            <div className="p-3 md:p-4 bg-[#F8F9FA] border-l-4 border-[#00A8CC] rounded-r-lg">
               <p className="text-sm text-[#2D3E50] italic">
                 What&apos;s broken today? Why does the client need to change now? What happens if they do nothing?
               </p>
@@ -137,42 +137,44 @@ export default function DiscoveryTemplate() {
       {/* Section 2: Outcomes */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">2</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Outcomes</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">2</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Outcomes</h3>
         </div>
-        <div className="pl-11 space-y-4">
+        <div className="pl-10 md:pl-11 space-y-4">
           {!showExample && (
-            <div className="p-4 bg-[#F8F9FA] border-l-4 border-[#00A8CC] rounded-r-lg">
+            <div className="p-3 md:p-4 bg-[#F8F9FA] border-l-4 border-[#00A8CC] rounded-r-lg">
               <p className="text-sm text-[#2D3E50] italic">
                 What does success look like? Be specific with metrics and timeframes.
               </p>
             </div>
           )}
-          <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
-            <table className="w-full text-sm">
-              <thead className="bg-[#1B3A5C] text-white">
-                <tr>
-                  <th className="px-4 py-3 text-left font-semibold">Outcome</th>
-                  <th className="px-4 py-3 text-left font-semibold">Current</th>
-                  <th className="px-4 py-3 text-left font-semibold">Target</th>
-                  <th className="px-4 py-3 text-left font-semibold">Timeline</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E8ECEF]">
-                {(d ? d.outcomes : [
-                  { metric: '[Metric 1]', current: '[Current value]', target: '[Target value]', timeline: '[Day X]' },
-                  { metric: '[Metric 2]', current: '[Current value]', target: '[Target value]', timeline: '[Day X]' },
-                  { metric: '[Metric 3]', current: '[Current value]', target: '[Target value]', timeline: '[Day X]' },
-                ]).map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F8F9FA]'}>
-                    <td className={`px-4 py-3 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.metric}</td>
-                    <td className={`px-4 py-3 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.current}</td>
-                    <td className={`px-4 py-3 font-semibold ${d ? 'text-[#00A8CC]' : 'text-[#6B7C93]'}`}>{row.target}</td>
-                    <td className={`px-4 py-3 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.timeline}</td>
+          <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+            <div className="overflow-hidden rounded-lg border border-[#E8ECEF] min-w-[500px]">
+              <table className="w-full text-sm">
+                <thead className="bg-[#1B3A5C] text-white">
+                  <tr>
+                    <th className="px-3 md:px-4 py-2 md:py-3 text-left font-semibold">Outcome</th>
+                    <th className="px-3 md:px-4 py-2 md:py-3 text-left font-semibold">Current</th>
+                    <th className="px-3 md:px-4 py-2 md:py-3 text-left font-semibold">Target</th>
+                    <th className="px-3 md:px-4 py-2 md:py-3 text-left font-semibold">Timeline</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-[#E8ECEF]">
+                  {(d ? d.outcomes : [
+                    { metric: '[Metric 1]', current: '[Current value]', target: '[Target value]', timeline: '[Day X]' },
+                    { metric: '[Metric 2]', current: '[Current value]', target: '[Target value]', timeline: '[Day X]' },
+                    { metric: '[Metric 3]', current: '[Current value]', target: '[Target value]', timeline: '[Day X]' },
+                  ]).map((row, i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F8F9FA]'}>
+                      <td className={`px-3 md:px-4 py-2 md:py-3 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.metric}</td>
+                      <td className={`px-3 md:px-4 py-2 md:py-3 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.current}</td>
+                      <td className={`px-3 md:px-4 py-2 md:py-3 font-semibold ${d ? 'text-[#00A8CC]' : 'text-[#6B7C93]'}`}>{row.target}</td>
+                      <td className={`px-3 md:px-4 py-2 md:py-3 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.timeline}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -180,58 +182,60 @@ export default function DiscoveryTemplate() {
       {/* Section 3: Demand */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">3</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Demand</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">3</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Demand</h3>
         </div>
-        <div className="pl-11 space-y-4">
+        <div className="pl-10 md:pl-11 space-y-4">
           {!showExample && (
-            <div className="p-4 bg-[#F8F9FA] border-l-4 border-[#00A8CC] rounded-r-lg">
+            <div className="p-3 md:p-4 bg-[#F8F9FA] border-l-4 border-[#00A8CC] rounded-r-lg">
               <p className="text-sm text-[#2D3E50] italic">
                 Define the unit of work, expected volumes, and complexity distribution. This drives staffing and pricing.
               </p>
             </div>
           )}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-semibold text-[#1B3A5C] mb-2">Unit of Work</label>
-              <div className={`h-10 bg-white border border-[#E8ECEF] rounded px-3 flex items-center text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
+              <div className={`min-h-[40px] bg-white border border-[#E8ECEF] rounded px-3 py-2 flex items-center text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
                 {d ? d.demand.unitOfWork : '[e.g., Support ticket, Application, Claim]'}
               </div>
             </div>
             <div>
               <label className="block text-sm font-semibold text-[#1B3A5C] mb-2">Monthly Volume</label>
-              <div className={`h-10 bg-white border border-[#E8ECEF] rounded px-3 flex items-center text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
+              <div className={`min-h-[40px] bg-white border border-[#E8ECEF] rounded px-3 py-2 flex items-center text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
                 {d ? d.demand.monthlyVolume : '[e.g., 12,000 - 15,000 / month]'}
               </div>
             </div>
           </div>
           <div>
             <label className="block text-sm font-semibold text-[#1B3A5C] mb-2">Complexity Distribution</label>
-            <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
-              <table className="w-full text-sm">
-                <thead className="bg-[#F8F9FA]">
-                  <tr>
-                    <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">Tier</th>
-                    <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">Description</th>
-                    <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">% Mix</th>
-                    <th className="px-4 py-2 text-left font-semibold text-[#1B3A5C]">Avg Handle Time</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-[#E8ECEF] bg-white">
-                  {(d ? d.demand.tiers : [
-                    { tier: 'Tier 1', desc: '[Description]', mix: '[X%]', aht: '[X min]' },
-                    { tier: 'Tier 2', desc: '[Description]', mix: '[X%]', aht: '[X min]' },
-                    { tier: 'Tier 3', desc: '[Description]', mix: '[X%]', aht: '[X min]' },
-                  ]).map((row, i) => (
-                    <tr key={i}>
-                      <td className="px-4 py-2 font-semibold text-[#1B3A5C]">{row.tier}</td>
-                      <td className={`px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.desc}</td>
-                      <td className={`px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.mix}</td>
-                      <td className={`px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.aht}</td>
+            <div className="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+              <div className="overflow-hidden rounded-lg border border-[#E8ECEF] min-w-[500px]">
+                <table className="w-full text-sm">
+                  <thead className="bg-[#F8F9FA]">
+                    <tr>
+                      <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">Tier</th>
+                      <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">Description</th>
+                      <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">% Mix</th>
+                      <th className="px-3 md:px-4 py-2 text-left font-semibold text-[#1B3A5C]">Avg Handle Time</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-[#E8ECEF] bg-white">
+                    {(d ? d.demand.tiers : [
+                      { tier: 'Tier 1', desc: '[Description]', mix: '[X%]', aht: '[X min]' },
+                      { tier: 'Tier 2', desc: '[Description]', mix: '[X%]', aht: '[X min]' },
+                      { tier: 'Tier 3', desc: '[Description]', mix: '[X%]', aht: '[X min]' },
+                    ]).map((row, i) => (
+                      <tr key={i}>
+                        <td className="px-3 md:px-4 py-2 font-semibold text-[#1B3A5C]">{row.tier}</td>
+                        <td className={`px-3 md:px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.desc}</td>
+                        <td className={`px-3 md:px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.mix}</td>
+                        <td className={`px-3 md:px-4 py-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.aht}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div>
@@ -246,11 +250,26 @@ export default function DiscoveryTemplate() {
       {/* Section 4: Constraints */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">4</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Constraints</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">4</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Constraints</h3>
         </div>
-        <div className="pl-11">
-          <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
+        <div className="pl-10 md:pl-11">
+          {/* Mobile card layout */}
+          <div className="block md:hidden space-y-3">
+            {(d ? d.constraints : [
+              { type: 'Timeline', details: '[e.g., Must be live by Sept 1; current contract ends Aug 31]' },
+              { type: 'Budget', details: '[e.g., $1.2M annual ceiling; must show 15% savings vs. current]' },
+              { type: 'Compliance', details: '[e.g., SOC 2 Type II required; HIPAA BAA needed]' },
+              { type: 'Geography', details: '[e.g., US-only agents required; EST business hours coverage]' },
+            ]).map((row, i) => (
+              <div key={i} className="bg-white border border-[#E8ECEF] rounded-lg p-4">
+                <p className="font-semibold text-[#1B3A5C] mb-1">{row.type}</p>
+                <p className={`text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.details}</p>
+              </div>
+            ))}
+          </div>
+          {/* Desktop table layout */}
+          <div className="hidden md:block overflow-hidden rounded-lg border border-[#E8ECEF]">
             <table className="w-full text-sm">
               <thead className="bg-[#1B3A5C] text-white">
                 <tr>
@@ -279,11 +298,41 @@ export default function DiscoveryTemplate() {
       {/* Section 5: Stakeholders */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">5</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Stakeholders</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">5</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Stakeholders</h3>
         </div>
-        <div className="pl-11">
-          <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
+        <div className="pl-10 md:pl-11">
+          {/* Mobile card layout */}
+          <div className="block md:hidden space-y-3">
+            {(d ? d.stakeholders : [
+              { name: '[Name]', title: '[Title]', role: '[Decision Maker / Champion / Approver]', priority: '[e.g., Cost savings, speed]' },
+              { name: '[Name]', title: '[Title]', role: '[Decision Maker / Champion / Approver]', priority: '[e.g., Quality, CSAT]' },
+              { name: '[Name]', title: '[Title]', role: '[Decision Maker / Champion / Approver]', priority: '[e.g., Compliance, terms]' },
+            ]).map((row, i) => (
+              <div key={i} className="bg-white border border-[#E8ECEF] rounded-lg p-4">
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <div>
+                    <p className={`font-medium ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.name}</p>
+                    <p className={`text-sm ${d ? 'text-[#6B7C93]' : 'text-[#6B7C93]'}`}>{row.title}</p>
+                  </div>
+                  {d ? (
+                    <span className={`px-2 py-1 rounded text-xs font-semibold flex-shrink-0 ${
+                      row.role === 'Decision Maker' ? 'bg-[#00A8CC]/10 text-[#00A8CC]' :
+                      row.role === 'Champion' ? 'bg-[#1B3A5C]/10 text-[#1B3A5C]' :
+                      'bg-[#6B7C93]/10 text-[#6B7C93]'
+                    }`}>{row.role}</span>
+                  ) : (
+                    <span className="text-xs text-[#6B7C93]">{row.role}</span>
+                  )}
+                </div>
+                <p className={`text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
+                  <span className="font-semibold text-[#1B3A5C]">Focus:</span> {row.priority}
+                </p>
+              </div>
+            ))}
+          </div>
+          {/* Desktop table layout */}
+          <div className="hidden md:block overflow-hidden rounded-lg border border-[#E8ECEF]">
             <table className="w-full text-sm">
               <thead className="bg-[#1B3A5C] text-white">
                 <tr>
@@ -325,10 +374,10 @@ export default function DiscoveryTemplate() {
       {/* Section 6: Open Items + Next Steps */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">6</span>
-          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Open Items + Next Steps</h3>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">6</span>
+          <h3 className="font-[family-name:var(--font-heading)] font-semibold text-lg md:text-xl text-[#1B3A5C]">Open Items + Next Steps</h3>
         </div>
-        <div className="pl-11 space-y-4">
+        <div className="pl-10 md:pl-11 space-y-4">
           <div>
             <label className="block text-sm font-semibold text-[#1B3A5C] mb-2">Missing Information</label>
             <div className="space-y-2">
@@ -337,8 +386,8 @@ export default function DiscoveryTemplate() {
                 '[Item 2 - e.g., Current cost breakdown]',
                 '[Item 3 - e.g., Existing SLA documentation]',
               ]).map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-3 bg-white border border-[#E8ECEF] rounded-lg">
-                  <div className={`w-5 h-5 rounded border-2 flex-shrink-0 flex items-center justify-center ${d ? 'border-[#00A8CC] bg-[#00A8CC]' : 'border-[#E8ECEF]'}`}>
+                <div key={i} className="flex items-start gap-3 p-3 bg-white border border-[#E8ECEF] rounded-lg">
+                  <div className={`w-5 h-5 rounded border-2 flex-shrink-0 flex items-center justify-center mt-0.5 ${d ? 'border-[#00A8CC] bg-[#00A8CC]' : 'border-[#E8ECEF]'}`}>
                     {d && <span className="text-white text-xs">✓</span>}
                   </div>
                   <span className={`text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{item}</span>
@@ -348,7 +397,24 @@ export default function DiscoveryTemplate() {
           </div>
           <div>
             <label className="block text-sm font-semibold text-[#1B3A5C] mb-2">Next Steps</label>
-            <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
+            {/* Mobile card layout */}
+            <div className="block md:hidden space-y-3">
+              {(d ? d.nextSteps : [
+                { action: '[Action item]', owner: '[Name]', due: '[Date]' },
+                { action: '[Action item]', owner: '[Name]', due: '[Date]' },
+                { action: '[Action item]', owner: '[Name]', due: '[Date]' },
+              ]).map((row, i) => (
+                <div key={i} className="bg-white border border-[#E8ECEF] rounded-lg p-3">
+                  <p className={`text-sm mb-2 ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>{row.action}</p>
+                  <div className="flex justify-between text-xs">
+                    <span className={d ? 'text-[#6B7C93]' : 'text-[#6B7C93]'}><span className="font-semibold">Owner:</span> {row.owner}</span>
+                    <span className={d ? 'text-[#6B7C93]' : 'text-[#6B7C93]'}><span className="font-semibold">Due:</span> {row.due}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Desktop table layout */}
+            <div className="hidden md:block overflow-hidden rounded-lg border border-[#E8ECEF]">
               <table className="w-full text-sm">
                 <thead className="bg-[#F8F9FA]">
                   <tr>
@@ -377,7 +443,7 @@ export default function DiscoveryTemplate() {
       </section>
 
       {/* Footer */}
-      <div className="mt-12 pt-6 border-t border-[#E8ECEF] flex items-center justify-between text-sm text-[#6B7C93]">
+      <div className="mt-8 md:mt-12 pt-4 md:pt-6 border-t border-[#E8ECEF] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs md:text-sm text-[#6B7C93]">
         <p>JDA TSG  |  Solutions Engineering</p>
         <p>Confidential - Internal Use Only</p>
       </div>

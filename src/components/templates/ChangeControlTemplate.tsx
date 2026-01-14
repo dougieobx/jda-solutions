@@ -63,22 +63,22 @@ export default function ChangeControlTemplate() {
   const d = showExample ? exampleData : null;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       {/* Document Header */}
-      <div className="border-b-2 border-[#00A8CC] pb-6">
-        <div className="flex items-start justify-between mb-4">
+      <div className="border-b-2 border-[#00A8CC] pb-4 md:pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
           <div>
             <p className="text-xs font-semibold text-[#00A8CC] uppercase tracking-wider mb-2">Template 04</p>
-            <h2 className="font-[family-name:var(--font-heading)] font-bold text-4xl text-[#1B3A5C]">
+            <h2 className="font-[family-name:var(--font-heading)] font-bold text-2xl sm:text-3xl md:text-4xl text-[#1B3A5C]">
               Change Control Exhibit
             </h2>
           </div>
-          <div className="text-right text-sm text-[#6B7C93]">
+          <div className="text-left sm:text-right text-sm text-[#6B7C93]">
             <p><span className="font-semibold">Version:</span> 1.5</p>
             <p><span className="font-semibold">Last Updated:</span> Jan 2025</p>
           </div>
         </div>
-        <p className="text-[#6B7C93] italic">
+        <p className="text-sm md:text-base text-[#6B7C93] italic">
           Lists measurable triggers that require repricing or scope adjustment and specifies what happens when they occur. Used to prevent &quot;free work&quot; from creeping in and keep the partnership stable when volumes, complexity, or SLAs change.
         </p>
       </div>
@@ -86,7 +86,7 @@ export default function ChangeControlTemplate() {
       <TemplateToggle showExample={showExample} onToggle={() => setShowExample(!showExample)} />
 
       {/* Meta Fields */}
-      <div className="grid grid-cols-3 gap-4 p-5 bg-[#F8F9FA] rounded-lg border border-[#E8ECEF]">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 md:p-5 bg-[#F8F9FA] rounded-lg border border-[#E8ECEF]">
         <div>
           <label className="block text-xs font-semibold text-[#6B7C93] uppercase tracking-wider mb-1">Client</label>
           <div className={`h-10 bg-white border border-[#E8ECEF] rounded px-3 flex items-center text-sm ${d ? 'text-[#1B3A5C] font-medium' : 'text-[#6B7C93]'}`}>
@@ -110,10 +110,10 @@ export default function ChangeControlTemplate() {
       {/* Section 1: Baseline Scope */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">1</span>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">1</span>
           <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Baseline Scope</h3>
         </div>
-        <div className="pl-11">
+        <div className="pl-10 md:pl-11">
           <div className={`min-h-[80px] bg-white border border-[#E8ECEF] rounded-lg p-4 text-sm ${d ? 'text-[#2D3E50]' : 'text-[#6B7C93]'}`}>
             {d ? (
               <ul className="space-y-1">
@@ -138,10 +138,10 @@ export default function ChangeControlTemplate() {
       {/* Section 2: Volume + Mix */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">2</span>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">2</span>
           <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Baseline Volume Band + Complexity Mix</h3>
         </div>
-        <div className="pl-11">
+        <div className="pl-10 md:pl-11">
           <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
             <table className="w-full text-sm">
               <thead className="bg-[#1B3A5C] text-white">
@@ -171,10 +171,10 @@ export default function ChangeControlTemplate() {
       {/* Section 3: SLAs */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">3</span>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">3</span>
           <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Baseline SLAs / Coverage Model</h3>
         </div>
-        <div className="pl-11">
+        <div className="pl-10 md:pl-11">
           <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
             <table className="w-full text-sm">
               <thead className="bg-[#1B3A5C] text-white">
@@ -210,10 +210,10 @@ export default function ChangeControlTemplate() {
       ].map((section) => (
         <section key={section.num}>
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">{section.num}</span>
+            <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">{section.num}</span>
             <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">{section.title}</h3>
           </div>
-          <div className="pl-11">
+          <div className="pl-10 md:pl-11">
             <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
               <table className="w-full text-sm">
                 <thead className="bg-[#1B3A5C] text-white">
@@ -246,10 +246,10 @@ export default function ChangeControlTemplate() {
       {/* Section 8: Approval Path */}
       <section>
         <div className="flex items-center gap-3 mb-4">
-          <span className="w-8 h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-sm">8</span>
+          <span className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-[#00A8CC] text-white flex items-center justify-center font-bold text-xs md:text-sm flex-shrink-0">8</span>
           <h3 className="font-[family-name:var(--font-heading)] font-semibold text-xl text-[#1B3A5C]">Approval Path + Timeline</h3>
         </div>
-        <div className="pl-11">
+        <div className="pl-10 md:pl-11">
           <div className="overflow-hidden rounded-lg border border-[#E8ECEF]">
             <table className="w-full text-sm">
               <thead className="bg-[#1B3A5C] text-white">
@@ -282,7 +282,7 @@ export default function ChangeControlTemplate() {
       </section>
 
       {/* Footer */}
-      <div className="mt-12 pt-6 border-t border-[#E8ECEF] flex items-center justify-between text-sm text-[#6B7C93]">
+      <div className="mt-8 md:mt-12 pt-4 md:pt-6 border-t border-[#E8ECEF] flex flex-col sm:flex-row items-center justify-between gap-2 text-xs md:text-sm text-[#6B7C93]">
         <p>JDA TSG  |  Solutions Engineering</p>
         <p>Confidential - Internal Use Only</p>
       </div>
