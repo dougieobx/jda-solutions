@@ -32,7 +32,7 @@ const exampleData = {
     { type: 'Timeline', details: 'Go-live target: 6 weeks for initial coverage; full scale within 90 days' },
     { type: 'Budget', details: '$2.4M annual ceiling; must demonstrate 15% LAE reduction vs. current vendor mix' },
     { type: 'Compliance', details: 'SOC 2-like controls required; strict access logging; no offshore access to PII; audit-ready QA documentation' },
-    { type: 'Tooling', details: 'Must work inside Guidewire ClaimCenter + Xactimate; limited API availability; carrier retains final approval authority' },
+    { type: 'Staffing', details: 'US-based writers only; English language; 7am-7pm CT weekday coverage with weekend surge during CAT events' },
     { type: 'Tools / Systems / Access', details: 'ClaimCenter access requires VPN + SSO; Xactimate licenses provided by carrier; no direct database access—read-only API for reporting; PII masking required in non-prod environments' },
   ],
   stakeholders: [
@@ -261,7 +261,7 @@ export default function DiscoveryTemplate() {
               { type: 'Timeline', details: '[e.g., Must be live by Sept 1; current contract ends Aug 31]' },
               { type: 'Budget', details: '[e.g., $1.2M annual ceiling; must show 15% savings vs. current]' },
               { type: 'Compliance', details: '[e.g., SOC 2 Type II required; HIPAA BAA needed]' },
-              { type: 'Tooling', details: '[e.g., US-only agents required; EST business hours coverage]' },
+              { type: 'Staffing', details: '[e.g., US-only agents, languages, business hours coverage]' },
               { type: 'Tools / Systems / Access', details: '[e.g., data and system access, PII limitations, API limits, etc.]' },
             ]).map((row, i) => (
               <div key={i} className="bg-white border border-[#E8ECEF] rounded-lg p-4">
@@ -284,7 +284,7 @@ export default function DiscoveryTemplate() {
                   { type: 'Timeline', details: '[e.g., Must be live by Sept 1; current contract ends Aug 31]' },
                   { type: 'Budget', details: '[e.g., $1.2M annual ceiling; must show 15% savings vs. current]' },
                   { type: 'Compliance', details: '[e.g., SOC 2 Type II required; HIPAA BAA needed]' },
-                  { type: 'Tooling', details: '[e.g., US-only agents required; EST business hours coverage]' },
+                  { type: 'Staffing', details: '[e.g., US-only agents, languages, business hours coverage]' },
                   { type: 'Tools / Systems / Access', details: '[e.g., data and system access, PII limitations, API limits, etc.]' },
                 ]).map((row, i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F8F9FA]'}>
