@@ -30,15 +30,28 @@ export default function Home() {
     <main className="min-h-screen bg-[#F8F9FA] flex flex-col">
       {/* Header */}
       <header className="bg-gradient-to-r from-[#1B3A5C] to-[#2D3E50] py-4 md:py-6 px-4 md:px-6 shadow-lg">
-        <div className="max-w-[1400px] mx-auto">
-          <h1 className="font-[family-name:var(--font-heading)] tracking-tight text-white flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
-            <span className="text-2xl md:text-3xl font-bold">JDA TSG</span>
-            <span className="hidden sm:inline text-[#00A8CC] text-2xl">|</span>
-            <span className="text-base md:text-xl font-normal italic opacity-90">Expect more, move faster.</span>
-          </h1>
-          <p className="text-white/80 text-sm md:text-base mt-1 font-[family-name:var(--font-body)]">
-            Solutions Engineering Template Library
-          </p>
+        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <h1 className="font-[family-name:var(--font-heading)] tracking-tight text-white flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+              <span className="text-2xl md:text-3xl font-bold">JDA TSG</span>
+              <span className="hidden sm:inline text-[#00A8CC] text-2xl">|</span>
+              <span className="text-base md:text-xl font-normal italic opacity-90">Expect more, move faster.</span>
+            </h1>
+            <p className="text-white/80 text-sm md:text-base mt-1 font-[family-name:var(--font-body)]">
+              Solutions Engineering Template Library
+            </p>
+          </div>
+          <a
+            href="https://chatgpt.com/g/g-6967e1948aa08191bd70df9552cc1dd9-discovergpt-discovery-call-assistant"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[#00A8CC] hover:bg-[#008fb3] text-white font-semibold text-sm rounded-lg transition-colors shadow-md hover:shadow-lg"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            Try DiscoverGPT
+          </a>
         </div>
       </header>
 
